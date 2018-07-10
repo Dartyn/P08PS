@@ -17,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -41,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
             public void onMapReady(GoogleMap googleMap) {
 
                 map = googleMap;
-
+                UiSettings ui = map.getUiSettings();
+                ui.setCompassEnabled(true);
+                ui.setZoomControlsEnabled(true);
                 LatLng poi_North = new LatLng(1.419, 103.8251);
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_North,
                         15));
